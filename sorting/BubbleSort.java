@@ -8,13 +8,15 @@ public class BubbleSort{
 		int N = a.length;
 		boolean flag = false;
 		for (int i=1; i<N; i++) {
+			//System.out.println("i= " + i);
 			for (int j=0; j<N-i; j++) {
+				//System.out.println("j= " + j);
 				if (less(a[j+1], a[j])) {
 					exch(a, j+1, j);
 					flag = true;
 				}
 			}
-			if(flag)
+			if(!flag)
 				break;
 		}
 	}
