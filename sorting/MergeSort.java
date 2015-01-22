@@ -40,13 +40,16 @@ public class MergeSort{
 		int mid = len/2;
 		Comparable[] left = new Comparable[mid];
 		Comparable[] right = new Comparable[len-mid];
-		int i = 0;
-		for (i=0; i<mid ; i++) {
+		int i;
+
+		for (i=0; i<mid; i++) {
 			left[i] = a[i];
 		}
-		for (i=mid; i<len-i ; i++) {
-			right[i-len] = a[i];
+
+		for (i=mid; i<len; i++) {
+			right[i-mid] = a[i];
 		}
+
 		sort(left);
 		sort(right);
 		merge(left, right, a);
