@@ -49,10 +49,10 @@ public class BubbleSort{
 		t = Integer.parseInt(in.nextLine());
 
 		//need to keep changing based on the data type to input 
-		String[] a = new String[t];
+		Integer[] a = new Integer[t];
 
 		for (int i=0; i<t; i++) {
-			a[i] = in.nextLine();
+			a[i] = in.nextInt();
 		}
 
 		sort(a);
