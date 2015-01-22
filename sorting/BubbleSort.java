@@ -7,7 +7,7 @@ public class BubbleSort{
 	public static void sort(Comparable[] a){
 		int N = a.length;
 		boolean flag = false;
-		for (int i=0; i<N; i++) {
+		for (int i=1; i<N; i++) {
 			for (int j=0; j<N-i; j++) {
 				if (less(a[j+1], a[j])) {
 					exch(a, j+1, j);
@@ -16,18 +16,6 @@ public class BubbleSort{
 			}
 			if(flag)
 				break;
-		}
-	}
-
-	public static void sort2(Comparable[] a){
-		for (int i = 1; i < a.length; i++) {
-			Comparable val = a[i];
-			int j = i;
-			while (j > 0 && less(val,a[j - 1])) {
-				exch(a, j, j-1);
-				j--;
-			}
-			a[j] = val;
 		}
 	}
 
@@ -59,14 +47,13 @@ public class BubbleSort{
 		t = Integer.parseInt(in.nextLine());
 
 		//need to keep changing based on the data type to input 
-		Integer[] a = new Integer[t];
+		String[] a = new String[t];
 
 		for (int i=0; i<t; i++) {
-			a[i] = in.nextInt();
+			a[i] = in.nextLine();
 		}
 
-		//sort(a);
-		sort2(a);
+		sort(a);
 		assert isSorted(a);
 		show(a);
 
