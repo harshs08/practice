@@ -9,7 +9,7 @@ public class QuickSort {
 
 		int partitionIndex = start;
 
-		for (int i=0; i<end; i++ ) {
+		for (int i=start; i<end; i++ ) {
 			if (less(a[i],pivot)) {
 				exch(a, i, partitionIndex);
 				partitionIndex++;
@@ -35,7 +35,7 @@ public class QuickSort {
 	}
 
 	public static boolean less(Comparable v, Comparable w){
-		return v.compareTo(w) < 0;
+		return v.compareTo(w) <= 0;
 	}
 
 	public static void exch(Comparable[] a, int i, int j){
@@ -66,7 +66,8 @@ public class QuickSort {
 
 		sort(a);
 		assert isSorted(a);
-		show(a);	}
+		show(a);
+	}
 
 	
 }
