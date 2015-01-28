@@ -5,29 +5,30 @@ import java.util.*;
 public class QuickSort {
 
 	public static int partition(Comparable[] a, int start, int end){
-		Comparable[] pivot = new Comparable[end];
+		Comparable pivot = a[end];
+
 		int partitionIndex = start;
 
 		for (int i=0; i<end; i++ ) {
 			if (less(a[i],pivot)) {
-				exch(a[i],a[partitionIndex]);
+				exch(a, i, partitionIndex);
 				partitionIndex++;
 			}
 		}
-		exch(a[partitionIndex],a[end]);
+		exch(a, partitionIndex, end);
 		return partitionIndex;
 	}
 
 	public static void quickSort(Comparable[] a, int start, int end){
  
 		if (start<end) {
-			partitionIndex = partition(a, start, end)
+			int partitionIndex = partition(a, start, end);
 			quickSort(a, start, partitionIndex-1);
-			quickSort(a, partitionIndex+1, end)
+			quickSort(a, partitionIndex+1, end);
 		}
 	}
 
-	public static sort(Comparable[] a){
+	public static void sort(Comparable[] a){
 		int first = 0;
 		int last = a.length - 1;
 		quickSort(a, first, last);
@@ -57,7 +58,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		t = Integer.parseInt(in.nextLine());
+		int t = Integer.parseInt(in.nextLine());
 
 		Integer[] a = new Integer[t];
 		for (int i=0; i<t ; i++)
