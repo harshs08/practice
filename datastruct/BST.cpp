@@ -23,16 +23,16 @@ BstNode* Insert(BstNode* root, int data){
 		root->left = Insert(root->left, data);
 	}
 	else{
-		root-right = Insert(root->right, data);
+		root->right = Insert(root->right, data);
 	}
 	return root;
 }
 
 bool Search(BstNode* root, int data){
-	if (root == NULL{
+	if (root == NULL){
 		return false;
 	}
-	else if(data == root->data ){
+	else if(data == root->data){
 		return true;
 	}
 	else if(data < root->data){
