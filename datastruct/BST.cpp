@@ -56,6 +56,19 @@ int FindMin(BstNode* root){
 	return root->data;
 }
 
+int FindMax(BstNode* root){
+	if (root == NULL)
+	{
+		cout << "Empty tree";
+		return -1;
+	}
+
+	while(root->right != NULL){
+		root = root->right;
+	}
+	return root->data;
+}
+
 int main(int argc, char const *argv[])
 {
 	BstNode* root = NULL;
@@ -66,13 +79,15 @@ int main(int argc, char const *argv[])
 	root = Insert(root,8);
 	root = Insert(root,12);
 
-	// int number;
-	// cout<<"Enter number be searched\n";
-	// cin>>number;
-
-	// if(Search(root,number) == true) cout<<"Found\n";
-	// else cout<<"Not Found\n";
 	cout << "Min Value of BST= " << FindMin(root) <<"\n";
+	cout << "Max Value of BST= " << FindMax(root) <<"\n";
+
+	int number;
+	cout<<"Enter number be searched\n";
+	cin>>number;
+
+	if(Search(root,number) == true) cout<<"Found\n";
+	else cout<<"Not Found\n";
 	
 	return 0;
 }
