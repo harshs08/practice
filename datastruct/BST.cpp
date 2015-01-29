@@ -69,6 +69,13 @@ int FindMax(BstNode* root){
 	return root->data;
 }
 
+int FindHeight(BstNode* root){
+	if (root == NULL) return -1;
+	int leftHeight = FindHeight(root->left);
+	int rightHeight = FindHeight(root->right);
+	return max(leftHeight, rightHeight) + 1;
+}
+
 int main(int argc, char const *argv[])
 {
 	BstNode* root = NULL;
@@ -79,8 +86,9 @@ int main(int argc, char const *argv[])
 	root = Insert(root,8);
 	root = Insert(root,12);
 
-	cout << "Min Value of BST= " << FindMin(root) <<"\n";
-	cout << "Max Value of BST= " << FindMax(root) <<"\n";
+	cout << "Min Value of BST = " << FindMin(root) <<"\n";
+	cout << "Max Value of BST = " << FindMax(root) <<"\n";
+	cout << "Height of the BST = " << FindHeight(root) <<"\n";
 
 	int number;
 	cout<<"Enter number be searched\n";
