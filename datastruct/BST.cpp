@@ -102,6 +102,13 @@ void PreOrderTransversal(BstNode* root){
 	PreOrderTransversal(root->right);
 }
 
+void InOrderTransversal(BstNode* root){
+	if(root == NULL) return;
+	InOrderTransversal(root->left);
+	cout<<root->data<< " ";
+	InOrderTransversal(root->right);
+}
+
 int main(int argc, char const *argv[])
 {
 	BstNode* root = NULL;
@@ -123,6 +130,10 @@ int main(int argc, char const *argv[])
 
 	cout << "Pre Order: ";
 	PreOrderTransversal(root);
+	cout << "\n\n";
+
+	cout << "In Order: ";
+	InOrderTransversal(root);
 	cout << "\n\n";
 
 	int number;
