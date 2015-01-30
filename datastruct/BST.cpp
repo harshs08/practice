@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 struct BstNode
@@ -76,6 +77,24 @@ int FindHeight(BstNode* root){
 	return max(leftHeight, rightHeight) + 1;
 }
 
+void LevelTransversal(BstNode* root){
+	if (root == NULL) return;
+	queue<BstNode*> Q;
+	Q.push(root);
+
+	while(!Q.empty()){
+		BstNode* current = Q.front();
+		cout << current->data << " ";
+		
+		if(current->left != NULL)
+			Q.push(current->left);
+		if(current->right != NULL)
+			Q.push(current->right);
+		
+		Q.pop();
+	} 
+}
+
 int main(int argc, char const *argv[])
 {
 	BstNode* root = NULL;
@@ -89,6 +108,9 @@ int main(int argc, char const *argv[])
 	cout << "Min Value of BST = " << FindMin(root) <<"\n";
 	cout << "Max Value of BST = " << FindMax(root) <<"\n";
 	cout << "Height of the BST = " << FindHeight(root) <<"\n";
+	cout << "BFS Tree transversal: ";
+	LevelTransversal(root);
+	cout << "\n";
 
 	int number;
 	cout<<"Enter number be searched\n";
