@@ -95,6 +95,13 @@ void LevelTransversal(BstNode* root){
 	} 
 }
 
+void PreOrderTransversal(BstNode* root){
+	if (root == NULL) return;
+	cout<<root->data<< " ";
+	PreOrderTransversal(root->left);
+	PreOrderTransversal(root->right);
+}
+
 int main(int argc, char const *argv[])
 {
 	BstNode* root = NULL;
@@ -108,9 +115,15 @@ int main(int argc, char const *argv[])
 	cout << "Min Value of BST = " << FindMin(root) <<"\n";
 	cout << "Max Value of BST = " << FindMax(root) <<"\n";
 	cout << "Height of the BST = " << FindHeight(root) <<"\n";
+	cout << "\n";
+
 	cout << "BFS Tree transversal: ";
 	LevelTransversal(root);
-	cout << "\n";
+	cout << "\n\n";
+
+	cout << "Pre Order: ";
+	PreOrderTransversal(root);
+	cout << "\n\n";
 
 	int number;
 	cout<<"Enter number be searched\n";
