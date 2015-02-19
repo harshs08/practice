@@ -8,3 +8,5 @@ def solution(a, b)
     return 0 if b<0
     return Math.sqrt(b).floor - Math.sqrt(a).ceil + 1
 end
+
+puts solution(6, 10)
