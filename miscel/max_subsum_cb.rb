@@ -36,3 +36,5 @@ def solution(a)
     end
     return count
 end
+
+puts solution([1,0,0,0])

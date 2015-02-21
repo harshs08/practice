@@ -46,7 +46,7 @@ public class StackSec {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int T = in.nextInt();
-		Stack<Integer> s = new Stack<Integer>();
+		StackSec s = new StackSec();
 		for (int i = 0; i<T ; i++) {
 			s.push(in.nextInt());
 		}

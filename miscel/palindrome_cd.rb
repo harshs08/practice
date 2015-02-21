@@ -7,7 +7,7 @@ def solution(s)
     s.each_byte do |ele|
         freq_bin[ele-97]+= 1
     end
-    
+    p freq_bin
     odd = 0
     freq_bin.each do |e|
       odd += 1 if e%2 != 0 
@@ -16,3 +16,5 @@ def solution(s)
     return 1
     
 end
+
+puts solution("aabaa")
