@@ -50,4 +50,18 @@ public class QueueSec{
 		}
 		return count;
 	}
+
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		int T = Integer.parseInt(in.nextLine());
+		QueueSec q = new QueueSec();
+		
+		for(int i=0; i<T;i++)
+			q.enqueue(in.nextLine());
+
+		System.out.println("Total number of elements in queue: " + q.count());
+		System.out.println("Head of the queue: "+ q.peek());
+		System.out.println("Dequeue the top element: "+ q.dequeue());
+		System.out.println("Total number of elements in queue: " + q.count());
+	}
 }
