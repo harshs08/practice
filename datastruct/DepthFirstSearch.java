@@ -31,7 +31,7 @@ public class DepthFirstSearch{
 		Scanner in = new Scanner(System.in);
 		Graph G = new Graph(in);
 		int s = Integer.parseInt(args[0]);
-
+		System.out.println(G);
 		DepthFirstSearch search = new DepthFirstSearch(s, G);
 		for (int v=0; v<G.V(); v++) {
 			if(search.marked(v)){
