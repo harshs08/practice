@@ -33,7 +33,7 @@ public class DepthFirstSearch{
 		int s = Integer.parseInt(args[0]);
 
 		DepthFirstSearch search = new DepthFirstSearch(s, G);
-		for (int v=0; v<=G.V(); v++) {
+		for (int v=0; v<G.V(); v++) {
 			if(search.marked(v)){
 				System.out.print(v + " ");
 			}
