@@ -21,15 +21,16 @@ public class DepthFirstSearch{
 	public DepthFirstSearch(int s, Graph G){
 		this.s = s;
 		marked = new boolean[G.V()];
-		count ++;
+		edgeTo = new int[G.V()];
 		dfs(s, G);
 	}
 
 	public void dfs(int v, Graph G){
 		marked[v] = true;
+		count ++;
 		for (int i : G.adj(v)) {
 			if (!marked[i]) {
-				edgeTo[v] = i;
+				edgeTo[i] = v;
 				dfs(i, G);
 			}
 		}
@@ -66,7 +67,7 @@ public class DepthFirstSearch{
 				System.out.println();
 			}
 			else{
-				System.out.println("no path present");
+				System.out.printf("%d to %d:  not connected\n", s, v);
 			}
 			
 		}
