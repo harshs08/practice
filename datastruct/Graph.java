@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Graph{
 	private final int V;
 	private int E;
-	private Bag<Integer>[] adj;
+	private Stack<Integer>[] adj;
 
 	@SuppressWarnings("unchecked")
 	public Graph(int V){
 		this.V = V;
-		adj = (Bag<Integer>[]) new Bag<?>[V];
+		adj = (Stack<Integer>[]) new Stack<?>[V];
 		for(int v = 0; v<V; v++){
-			adj[v] = new Bag<Integer>();
+			adj[v] = new Stack<Integer>();
 		}
 	}
 
@@ -33,8 +33,8 @@ public class Graph{
 	}
 
 	public void addEdge(int v, int w){
-		adj[v].add(w);
-		adj[w].add(v);
+		adj[v].push(w);
+		adj[w].push(v);
 		E++;
 	}
 
