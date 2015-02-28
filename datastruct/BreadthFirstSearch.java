@@ -33,13 +33,15 @@ public class BreadthFirstSearch{
 		distTo[s] = 0;
 		Q.add(s);
 
-		while(!Q.isEmpty()){
+		while(Q.size() > 0){
 			int v = Q.remove();
 			for (int w : G.adj(v)) {
-				edgeTo[w] = v;
-				distTo[w] = distTo[v] + 1;
-				marked[w] = true;
-				Q.add(w);
+				if(!marked[w]){
+					edgeTo[w] = v;
+					distTo[w] = distTo[v] + 1;
+					marked[w] = true;
+					Q.add(w);
+				}
 			}
 		}
 	}
@@ -50,12 +52,29 @@ public class BreadthFirstSearch{
 		int x;
 		for (x=v; distTo[x] != 0; x=edgeTo[x])
 			path.push(x);
-		path.push(v);
+		path.push(x);
 		return path;
 	}
 
 	public static void main(String[] args) {
-		
+		Scanner in = new Scanner(System.in);
+		Graph G = new Graph(in);
+		int source = Integer.parseInt(args[0]);
+		System.out.println(G);
+		BreadthFirstSearch search = new BreadthFirstSearch(source, G);
+		for (int v=0; v<G.V(); v++ ) {
+			if(search.hasPathTo(v)){
+				System.out.printf("%d to %d (%d) ", source, v, search.distTo(v));
+				for( int x : search.pathTo(v)){
+					if(x==source) System.out.print(x);
+					else System.out.print("-" + x);
+				}
+				System.out.println();
+			}
+			else{
+				System.out.printf("%d to %d (-): not connected\n", source, v);
+			}
+		}
 	}
 
 }
