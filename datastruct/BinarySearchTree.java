@@ -57,11 +57,22 @@ public class BinarySearchTree{
 		}
 	}
 
+	public int findHeight(Node root){
+		if(root == null) return -1;
+		int leftHeight = findHeight(root.left);
+		int rightHeight = findHeight(root.right);
+		return Math.max(leftHeight, rightHeight) + 1;
+	}
+
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.setRoot(bst.insert(15, root));
 		bst.setRoot(bst.insert(10, root));
 		bst.setRoot(bst.insert(20, root));
+		bst.setRoot(bst.insert(12, root));
+		bst.setRoot(bst.insert(2, root));
+		bst.setRoot(bst.insert(25, root));
+		bst.setRoot(bst.insert(10, root));
 		System.out.println("Inorder Transversal: ");
 		bst.inOrderTransversal(bst.getRoot());
 		System.out.println();
@@ -73,5 +84,6 @@ public class BinarySearchTree{
 		else{
 			System.out.println("Not Found");
 		}
+		System.out.println("Height of the Tree: "+ bst.findHeight(bst.getRoot()));
 	}
 }
