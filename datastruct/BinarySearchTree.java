@@ -1,3 +1,5 @@
+import java.util.Queue;
+import java.util.LinkedList;
 public class BinarySearchTree{
 	
 	private class Node{
@@ -64,6 +66,23 @@ public class BinarySearchTree{
 		return Math.max(leftHeight, rightHeight) + 1;
 	}
 
+	public void levelTransversal(Node root){
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			Node current = queue.peek();
+			System.out.print(current.data+ " ");
+			if(current.left != null){
+				queue.add(current.left);
+			}
+			if(current.right != null){
+				queue.add(current.right);
+			}
+			queue.remove();
+		}
+	}
+
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.setRoot(bst.insert(15, root));
@@ -85,5 +104,8 @@ public class BinarySearchTree{
 			System.out.println("Not Found");
 		}
 		System.out.println("Height of the Tree: "+ bst.findHeight(bst.getRoot()));
+
+		System.out.println("Levelwise Transversal:");
+		bst.levelTransversal(bst.getRoot());
 	}
 }
