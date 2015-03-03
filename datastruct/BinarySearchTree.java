@@ -42,6 +42,21 @@ public class BinarySearchTree{
 	inOrderTransversal(node.right);
 	}
 
+	public boolean search(int data, Node root){
+		if(root == null){
+			return false;
+		}
+		else if(data == root.data){
+			return true;
+		}
+		else if(data < root.data){
+			return search(data, root.left);
+		}
+		else{
+			return search(data, root.right);
+		}
+	}
+
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.setRoot(bst.insert(15, root));
@@ -49,5 +64,14 @@ public class BinarySearchTree{
 		bst.setRoot(bst.insert(20, root));
 		System.out.println("Inorder Transversal: ");
 		bst.inOrderTransversal(bst.getRoot());
+		System.out.println();
+
+		boolean searchRes = bst.search(20, bst.getRoot());
+		if(searchRes == true){
+			System.out.println("Found");
+		}
+		else{
+			System.out.println("Not Found");
+		}
 	}
 }
