@@ -9,10 +9,6 @@ class BalancedParen{
 		this.expression = expression;
 	}
 
-
-
-
-
 	public boolean isPair(char opening, char closing){
 		if (opening == '(' && closing == ')') return true;
 		if (opening == '{' && closing == '}') return true;
@@ -27,7 +23,7 @@ class BalancedParen{
 				S.push(a);
 			}
 			else if(a == ')' || a == '}' || a == ']'){
-				if(S.empty() || isPair(S.peek(),a)) {
+				if(S.empty() || !isPair(S.peek(),a)) {
 					return false;
 				}
 				else{
