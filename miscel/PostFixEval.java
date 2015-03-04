@@ -8,13 +8,33 @@ public class PostFixEval{
 		this.expression = expression;
 	}
 
-
 	public boolean isDigit(char d){
-		return false;
+		if(d >= 0 && d<=9 ){ return true; }
+		else { false; }
 	}
 
 	public boolean isOperator(char op){
+		if(op == "+" || op == "-" || op == "*" || op == "/")
+			return true;
 		return false;
+	}
+
+	public int performOperation(char operator, int op1, int op2){
+		if(operator == "+"){
+			return op1 + op2;
+		}
+		else if (operator == "-") {
+			return op1 - op2;
+		}
+		else if (operator == "*") {
+			return op1 * op2;
+		}
+		else if (operator == "/") {
+			return op1 / op2;
+		}
+		else{
+			return Integer.MAX_VALUE;
+		}
 	}
 
 	public int evaluatePostfix(){
