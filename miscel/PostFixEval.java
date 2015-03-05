@@ -43,14 +43,21 @@ public class PostFixEval {
 		int res = 0;
 		int op1;
 		int op2;
-		for (char element : expression) {
-			if (isOperator(element)) {
+		for (int i = 0;i< expression.length;i++) {
+			if(expression[i] == ' ' || expression[i] == ',') { continue; }
+			if (isOperator(expression[i])) {
 				op2 = S.pop();
 				op1 = S.pop();
-				res = performOperation(element, op1, op2);
+				res = performOperation(expression[i], op1, op2);
 				S.push(res);
-			} else if(isDigit(element)) {
-				S.push(Character.getNumericValue(element));
+			} else if(isDigit(expression[i])) {
+				int operant = 0;
+				while(isDigit(expression[i]) && i< expression.length){
+					operant = operant*10 + Character.getNumericValue(expression[i]); 
+					i++;
+				}
+				i--;
+				S.push(operant);
 			}
 		}
 		return S.peek();
