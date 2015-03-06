@@ -39,6 +39,11 @@ public class CoinChangeRec
 			}
 		}
 
+		// for (int i=0; i<mySol.length; i++) {
+		// 	System.out.println(mySol[i]);
+		// }
+		// System.out.println("YO");
+
 		/* --------------------------------------------------------
 		Find the minimum
 		-------------------------------------------------------- */
@@ -51,7 +56,7 @@ public class CoinChangeRec
 			}
 		}
 
-		return(myFinalSol);   // Return best solution
+		return myFinalSol;   // Return best solution
 	}
 
 
