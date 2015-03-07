@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class CoinChangeDP{
 
 	public static int minChange(int[] coins, int value){
-		int[] min = new int[coins.length];
+		int[] min = new int[value+1];
 		Arrays.fill(min, Integer.MAX_VALUE);
 		min[0] = 0;
 		for (int i=1; i<=value; i++ ) {
