@@ -7,6 +7,7 @@ def fib(n)
 	while(i < n)
 		fibs[i] = fibs[i-1] + fibs[i-2];
 		i += 1
+		
 	end
 	return fibs
 end
