@@ -2,7 +2,7 @@
 #include <math.h>
 int prime(int num){
     if (num == 0 || num == 1)
-        return -1;
+        return 1;
     for (int i = 2; i<=sqrt(num); i++) {
         if (num%i==0) {
             return -1;
@@ -13,7 +13,8 @@ int prime(int num){
 }
 
 int main(int argc, const char *argv[]){
-    int number = 17;
+    printf("Enter a number\n");
+    int number = getchar();
     int result = prime(number);
     if(result==1){
         printf("The number is prime\n");
