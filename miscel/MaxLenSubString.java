@@ -18,28 +18,73 @@
 // There are only two unique characters, thus show error message.
 
 public class MaxLenSubString{
-
-	public static void main(String[] args){
-		String s = "aabbcc";
-		int k = 1;
-		char[] arr = s.toCharArray();
-		int count = 1;
-		int size = 1;
-		StringBuffer sb =null;
-		int i =0;
-		for (char ch : arr ) {
-			for (int j=i+1; j<s.length(); j++) {
-				sb = new StringBuffer(s.length());
-				sb.append(arr[i]);
-				if( size <= k && arr[i] == arr[j]){
-					count++;
-					sb.append(arr[j]);
-					size++;
+	
+	//checks if total number of elements are less than or equal to k. To maintain the window size.
+	public static boolean isValid(int[] count,int val){
+		try{
+			int v = 0;
+			for(int i = 0;i < count.length ; i++){
+				if(count[i] > 0){
+					v++;
 				}
 			}
-			i++;
+			return (val >=v);
+		}catch(Exception ex){
+			ex.printStackTrace();
 		}
-		System.out.println("The max substring containing: "+ k + " unique characters is: "+ sb);
+		return false;
+	}
+	
+	public static void countMaxUniquCharecter(String str,int k){
+		try{
+			int unique_count = 0;
+			int current_start = 0;
+			int current_end = 1;
+			int max_window_size=0;
+			int max_start = 0;
+			int[] count = new int[str.length()];
+
+			for(int i = 0 ; i< str.length() ; i++){
+				if(count[str.charAt(i) - 'a'] == 0){
+					unique_count++;
+				}
+				count[str.charAt(i) - 'a']++;
+			}
+			if(unique_count < k){
+				System.out.println("Not enough unique characters!");
+				return;
+			}
+			count = new int[str.length()];
+			count[str.charAt(0) - 'a']++;
+			for(int i = 1;i<str.length();i++){
+				count[str.charAt(i) - 'a']++;
+				current_end++;
+				while(!isValid(count,k)){
+					count[str.charAt(current_start) - 'a']--;
+					current_start++;
+				}
+				int size = current_end - current_start;
+				if(size > max_window_size){
+					max_window_size = size;
+					max_start = current_start;
+				}
+			}
+			String opt = str.substring(max_start,(max_start+max_window_size));
+			System.out.println( "The max substring of "+ k +" unique characters is: \'"+ opt +"\' with size= "+max_window_size);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		try{
+			String str = "caabbc";//"aabacbebebe";
+			int k = 2; // MAX Length of unique character in the string
+			countMaxUniquCharecter(str, k);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+ 
 	}
 
 }
