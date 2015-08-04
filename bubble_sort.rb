@@ -1,5 +1,6 @@
 class BubbleSort
   def sort(values)
+    not_swapped = true
     i = 0
     while i < values.length
       j = 0
@@ -8,10 +9,12 @@ class BubbleSort
           temp        = values[j+1]
           values[j+1] = values[j]
           values[j]   = temp
+          not_swapped = false
         end
         j = j+1
       end
       i = i+1
+      exit if not_swapped
     end
     puts values
   end
