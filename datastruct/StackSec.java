@@ -13,14 +13,17 @@ public class StackSec {
 	}
 
 	private Node top = null;
+	private int count = 0;
 
 	public void push(Object item) {
 		top = new Node(item, top);
+		count++;
 	}
 
 	public Object pop() {
 		Object item = top.data;
 		top = top.next;
+		count--;
 		return item;
 	}
 
@@ -36,10 +39,10 @@ public class StackSec {
 	}
 
 	public int size() {
-		int count = 0;
-		for (Node node = top; node != null; node = node.next) {
-				count++;
-		}
+		// int count = 0;
+		// for (Node node = top; node != null; node = node.next) {
+		// 		count++;
+		// }
 		return count;
 	}
 

@@ -5,7 +5,7 @@ def fib(n)
 	fibs[1] = 1
 	i = 2
 	while(i < n)
-		fibs[i] = fibs[i-1] + fibs[i-2];
+		fibs[i] = fibs[i-1] + fibs[i-2]
 		i += 1
 		
 	end
